@@ -1,0 +1,176 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#3b1237">
+
+    <title>One Last Surprise 💖</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="brand">💗 KEJI'S DAY</div>
+        <div>Always &amp; Forever ♡</div>
+    </nav>
+
+    <main class="wrap">
+
+        <section class="hero">
+
+            <div class="eyebrow">Just between you and me</div>
+
+            <h1>One Last <span>Surprise 💖</span></h1>
+
+            <div class="art">🌹💌🕯️</div>
+
+            <p class="intro">
+                <strong>Keji, my baby girl...</strong>
+                <br>
+                Today celebrates the beautiful person you are.
+                You bring a special kind of happiness into my world,
+                and I hope this new year of your life brings you endless
+                love, laughter, good health, success, peace, and every
+                lovely thing your heart wishes for.
+            </p>
+
+            <p class="intro">
+                Keep smiling, keep shining, and never forget how special
+                you are to me. If I could wrap up all my love and give it
+                to you as a gift, it would be the biggest gift in the world. 🎁
+            </p>
+
+            <div style="
+                font-family: Georgia, serif;
+                font-style: italic;
+                font-size: 1.5rem;
+                color: #ff3f91;
+            ">
+                Happy Birthday, My Baby Girl ♡
+            </div>
+
+            <p class="intro">
+                I love you—today, tomorrow, and always. 💋
+            </p>
+
+            <button
+                class="btn"
+                onclick="sendKisses()"
+            >
+                Send a Thousand Kisses 💋
+            </button>
+
+            <br><br>
+
+            <!-- Main birthday music button -->
+            <button
+                class="btn dark"
+                id="music"
+                onclick="toggleMusic()"
+            >
+                ▶ Play Birthday Music 🎵
+            </button>
+
+            <!-- Main MP3 music -->
+            <audio id="bgMusic" loop preload="auto">
+                <source
+                    src="Sam_Fischer_-_This_City_Acoustic_(mp3.pm).mp3"
+                    type="audio/mpeg"
+                >
+                Your browser does not support audio playback.
+            </audio>
+
+            <p class="intro" id="musicMsg">
+                A little song to make your special day even sweeter. 💗
+            </p>
+
+        </section>
+
+        <div style="text-align:center; margin-top:24px">
+            <a class="btn" href="index.html">
+                I Want to Do It Again →
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        Made with love, just for Keji 💗
+        <br>
+        <small>Forever yours, Bubby ♡</small>
+    </footer>
+
+    <div id="toast"></div>
+
+    <script src="script.js"></script>
+
+    <script>
+        const bgMusic = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('music');
+        const musicMsg = document.getElementById('musicMsg');
+
+        // Play or pause the main birthday song.
+        async function toggleMusic() {
+
+            if (bgMusic.paused) {
+
+                try {
+                    await bgMusic.play();
+
+                    musicBtn.textContent = 'Ⅱ Pause Birthday Music 🎵';
+                    musicMsg.textContent =
+                        'Enjoy our song, my baby girl. 💖🎶';
+
+                } catch (error) {
+
+                    musicBtn.textContent = '▶ Play Birthday Music 🎵';
+                    musicMsg.textContent =
+                        'The music could not start. Please check that the MP3 file is in the same folder as this page. 💗';
+
+                }
+
+            } else {
+
+                bgMusic.pause();
+
+                musicBtn.textContent = '▶ Play Birthday Music 🎵';
+                musicMsg.textContent =
+                    'Your song is paused. Tap play whenever you are ready. 💗';
+
+            }
+        }
+
+        // Keep the button label correct if the song ends or playback stops.
+        bgMusic.addEventListener('ended', function () {
+            musicBtn.textContent = '▶ Play Birthday Music 🎵';
+        });
+
+        bgMusic.addEventListener('error', function () {
+            musicMsg.textContent =
+                'We could not load the song. Please check the MP3 filename and location.';
+        });
+
+        // Birthday kisses and confetti.
+        function sendKisses() {
+
+            if (typeof confetti === 'function') {
+                confetti(50);
+            }
+
+            if (typeof toast === 'function') {
+                toast('Happy Birthday, Keji! You are loved! 💖💋');
+            } else {
+                document.getElementById('toast').textContent =
+                    'Happy Birthday, Keji! You are loved! 💖💋';
+            }
+        }
+    </script>
+
+</body>
+</html>
+```

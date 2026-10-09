@@ -1,0 +1,163 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#3b1237">
+    <title>Love Letters for Keji 💌</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .letter-icon {
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 4rem;
+            padding: 12px;
+            border-radius: 20px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .letter-icon:hover {
+            transform: scale(1.2) rotate(-5deg);
+            background: rgba(255, 192, 203, 0.15);
+        }
+
+        .letter-icon:focus-visible {
+            outline: 2px solid #ffb6d5;
+            outline-offset: 5px;
+        }
+
+        .letter-hint {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+
+        .letter {
+            display: none;
+        }
+
+        .letter.show {
+            display: block;
+            animation: letterReveal 0.6s ease;
+        }
+
+        @keyframes letterReveal {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="brand">💗 KEJI'S DAY</div>
+    </nav>
+
+    <main class="wrap">
+        <section class="hero">
+            <div class="eyebrow">Surprise 2 of 5</div>
+            <h1>Little Love <span>Letters 💌</span></h1>
+            <p class="intro">
+                Pick an icon, baby girl. Each one has a little piece of my heart inside.
+            </p>
+            
+        </section>
+
+        <section class="grid">
+            <div class="card">
+                <button class="letter-icon"
+                        type="button"
+                        aria-label="Open the letter that will make you smile"
+                        onclick="showLetter(0)">
+                    😊
+                </button>
+                <h3>Open when you need a smile</h3>
+                <p class="letter-hint">Tap the icon, baby girl 💗</p>
+            </div>
+
+            <div class="card">
+                <button class="letter-icon"
+                        type="button"
+                        aria-label="Open your hug letter"
+                        onclick="showLetter(1)">
+                    🫂
+                </button>
+                <h3>Open when you need a hug</h3>
+                <p class="letter-hint">Tap the icon, baby girl 💗</p>
+            </div>
+
+            <div class="card">
+                <button class="letter-icon"
+                        type="button"
+                        aria-label="Open your goodnight letter"
+                        onclick="showLetter(2)">
+                    🌙
+                </button>
+                <h3>Open before you sleep</h3>
+                <p class="letter-hint">Tap the icon, baby girl 💗</p>
+            </div>
+        </section>
+
+        <section class="letter" id="letter">
+            <h2 id="lt"></h2>
+            <p id="lb"></p>
+        </section>
+
+        <div style="text-align:center; margin-top:24px">
+            <a class="btn" href="game.html">Unwrap Next →</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Made with love, just for Keji 💗<br>
+        <small>Forever yours, Bubby ♡</small>
+    </footer>
+
+    <div id="toast"></div>
+
+    <script>
+        const titles = [
+            'A little smile just for you 😊',
+            'A big hug for my baby girl 🫂',
+            'A goodnight kiss for Keji 🌙'
+        ];
+
+        const bodies = [
+            'If today gets busy or the world feels a little heavy, remember there is someone cheering for you and wishing you all the happiness you bring to others. Keep that beautiful smile, Keji. It suits you! 💖',
+
+            'Imagine the warmest hug wrapped around you right now. You deserve comfort, kindness, patience, and a love that reminds you how precious you are. Sending you the biggest hug, My Baby Girl. 💗',
+
+            'As you close your eyes tonight, I hope you feel proud of the person you are and excited for all the beautiful things ahead. Sleep peacefully, dream sweetly, and imagine one little kiss from me. Goodnight, my love. 😘'
+        ];
+
+        function showLetter(i) {
+            document.getElementById('lt').textContent = titles[i];
+            document.getElementById('lb').textContent = bodies[i];
+
+            const letter = document.getElementById('letter');
+            letter.classList.add('show');
+
+            if (typeof confetti === 'function') {
+                confetti(12);
+            }
+
+            letter.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```

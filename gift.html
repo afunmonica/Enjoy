@@ -1,0 +1,77 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#3b1237">
+    <title>Your Birthday Gift 🎁</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="brand">💗 KEJI'S DAY</div>
+        <div class="navlinks"></div>
+        <div>Always &amp; Forever ♡</div>
+    </nav>
+
+    <main class="wrap">
+        <section class="hero">
+            <div class="eyebrow">Surprise 1 of 5</div>
+            <h1>Open Your <span>Gift Box 🎁</span></h1>
+
+            <div class="art" id="gift">🎁</div>
+
+            <p class="intro" id="giftText">
+                A little surprise is waiting for you, My Baby Girl.
+                Tap below to unwrap it!
+            </p>
+
+            <button class="btn" id="unwrapBtn" onclick="unwrapGift()">
+                Unwrap Your Gift 💝
+            </button>
+        </section>
+
+        <div style="text-align:center;margin-top:24px">
+            <a
+                class="btn"
+                id="nextBtn"
+                href="letters.html"
+                style="display:none"
+            >
+                Next: Click for more →
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Made with love, just for Keji 💗<br>
+        <small>Forever yours, Bubby ♡</small>
+    </footer>
+
+    <div id="toast"></div>
+
+    <script src="script.js"></script>
+
+    <script>
+        function unwrapGift() {
+            document.getElementById('gift').textContent = '💝';
+
+            document.getElementById('giftText').textContent =
+                'Keji, this gift is a little reminder that you are loved, cherished, and appreciated more than words can say. Today, tomorrow, and every day—you deserve beautiful things. 💗';
+
+            const unwrapBtn = document.getElementById('unwrapBtn');
+            unwrapBtn.textContent = 'Gift Unwrapped! 💖';
+            unwrapBtn.disabled = true;
+
+            // Show the Next button only after the gift is unwrapped.
+            document.getElementById('nextBtn').style.display = 'inline-block';
+
+            confetti(35);
+        }
+    </script>
+
+</body>
+</html>
+```

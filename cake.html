@@ -1,0 +1,109 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#3b1237">
+
+    <title>Make a Birthday Wish 🎂</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="brand">💗 KEJI'S DAY</div>
+        <div>Always &amp; Forever ♡</div>
+    </nav>
+
+    <main class="wrap">
+
+        <section class="hero">
+
+            <div class="eyebrow">Surprise 4 of 5</div>
+
+            <h1>Make a Birthday <span>Wish, Keji! 🎂</span></h1>
+
+            <p class="intro">
+                Close your eyes, make your biggest wish, then tap the candles to blow them out. ✨
+            </p>
+
+            <div id="candles" class="art">
+                🕯️ 🕯️ 🕯️ 🕯️ 🕯️
+            </div>
+
+            <div class="art">🎂</div>
+
+            <p class="intro" id="cakeMsg">
+                Five little candles, a million wishes for you. 💖
+            </p>
+
+            <button
+                class="btn"
+                id="wishBtn"
+                onclick="makeWish()"
+            >
+                Blow Out All Candles ✨
+            </button>
+
+        </section>
+
+        <div style="text-align:center; margin-top:24px">
+
+            <!-- Hidden until the birthday wish is made -->
+            <a
+                class="btn"
+                id="finalBtn"
+                href="surprise.html"
+                style="display:none"
+            >
+                Reveal Final Surprise →
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        Made with love, just for Keji 💗
+        <br>
+        <small>Forever yours, Bubby ♡</small>
+    </footer>
+
+    <div id="toast"></div>
+
+    <script src="script.js"></script>
+
+    <script>
+        function makeWish() {
+
+            // Blow out the candles.
+            document.getElementById('candles').textContent =
+                '💨 💨 💨 💨 💨';
+
+            // Display the birthday wish message.
+            document.getElementById('cakeMsg').textContent =
+                'Wish made! May your dreams come true, Keji! 🎉💖';
+
+            // Update the button.
+            const wishBtn = document.getElementById('wishBtn');
+            wishBtn.textContent = 'Wish Made! 💖';
+            wishBtn.disabled = true;
+
+            // Reveal the final surprise button.
+            document.getElementById('finalBtn').style.display =
+                'inline-block';
+
+            // Celebrate!
+            if (typeof confetti === 'function') {
+                confetti(35);
+            }
+        }
+    </script>
+
+</body>
+</html>
+```

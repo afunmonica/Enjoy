@@ -1,0 +1,188 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#3b1237">
+
+    <title>Birthday Heart Game 🎮</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="brand">💗 KEJI'S DAY</div>
+        <div>Always &amp; Forever ♡</div>
+    </nav>
+
+    <main class="wrap">
+
+        <section class="hero">
+
+            <div class="eyebrow">Surprise 3 of 5</div>
+
+            <h1>Collect the <span>Love Hearts 💖</span></h1>
+
+            <p class="intro">
+                Collect 10 hearts to complete your game and unlock the next surprise!
+            </p>
+
+            <h2>
+                Hearts collected:
+                <span id="score">0</span> / 10
+            </h2>
+
+            <div class="progress">
+                <span id="bar"></span>
+            </div>
+
+            <div class="hearts" id="field"></div>
+
+            <p id="msg" class="intro">
+                Every heart is a little reminder that you're loved!
+            </p>
+
+            <!-- Hidden until Keji wins -->
+            <button
+                class="btn alt"
+                id="playAgainBtn"
+                onclick="resetGame()"
+                style="display:none"
+            >
+                Play Again ↻
+            </button>
+
+        </section>
+
+        <div style="text-align:center; margin-top:24px">
+
+            <!-- Hidden until Keji wins -->
+            <a
+                class="btn"
+                id="nextBtn"
+                href="cake.html"
+                style="display:none"
+            >
+                Next: Don't get tired, click to keep going →
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        Made with love, just for Keji 💗
+        <br>
+        <small>Forever yours, Bubby ♡</small>
+    </footer>
+
+    <div id="toast"></div>
+
+    <script>
+        let score = 0;
+        let gameWon = false;
+
+        function addHeart() {
+
+            const b = document.createElement('button');
+
+            b.className = 'heart';
+
+            b.textContent = [
+                '💖',
+                '💗',
+                '💘',
+                '💕',
+                '💝'
+            ][Math.floor(Math.random() * 5)];
+
+            b.setAttribute('aria-label', 'Collect this love heart');
+
+            b.onclick = function () {
+
+                if (gameWon || b.disabled) {
+                    return;
+                }
+
+                score++;
+
+                document.getElementById('score').textContent = score;
+
+                document.getElementById('bar').style.width =
+                    (score * 10) + '%';
+
+                if (score >= 10) {
+
+                    // Keji has won the game!
+                    gameWon = true;
+
+                    document.getElementById('field').innerHTML =
+                        '🏆💖🎉';
+
+                    document.getElementById('msg').textContent =
+                        'You did it, Keji! May your year be as wonderful as your heart! 💖🎉';
+
+                    // Show Play Again.
+                    document.getElementById('playAgainBtn').style.display =
+                        'inline-block';
+
+                    // Show the Next button.
+                    document.getElementById('nextBtn').style.display =
+                        'inline-block';
+
+                    // Celebrate the victory.
+                    if (typeof confetti === 'function') {
+                        confetti(40);
+                    }
+
+                } else {
+
+                    // Remove the collected heart and add another.
+                    b.remove();
+                    addHeart();
+
+                }
+            };
+
+            document.getElementById('field').appendChild(b);
+        }
+
+        function resetGame() {
+
+            score = 0;
+            gameWon = false;
+
+            document.getElementById('score').textContent = '0';
+
+            document.getElementById('bar').style.width = '0%';
+
+            document.getElementById('msg').textContent =
+                "Every heart is a little reminder that you're loved!";
+
+            document.getElementById('field').innerHTML = '';
+
+            // Hide both buttons when starting again.
+            document.getElementById('playAgainBtn').style.display =
+                'none';
+
+            document.getElementById('nextBtn').style.display =
+                'none';
+
+            // Create five hearts to start the game.
+            for (let i = 0; i < 5; i++) {
+                addHeart();
+            }
+        }
+
+        // Start the game.
+        resetGame();
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
