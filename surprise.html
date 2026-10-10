@@ -67,8 +67,7 @@
 
             <br><br>
 
-            <!-- Main birthday music button -->
-            <button
+                      <button
                 class="btn dark"
                 id="music"
                 onclick="toggleMusic()"
@@ -76,7 +75,7 @@
                 ▶ Play Birthday Music 🎵
             </button>
 
-            <!-- Main MP3 music -->
+           
             <audio id="bgMusic" loop preload="auto">
                 <source
                     src="Sam_Fischer_-_This_City_Acoustic_(mp3.pm).mp3"
@@ -114,7 +113,7 @@
         const musicBtn = document.getElementById('music');
         const musicMsg = document.getElementById('musicMsg');
 
-        // Play or pause the main birthday song.
+        
         async function toggleMusic() {
 
             if (bgMusic.paused) {
@@ -145,7 +144,7 @@
             }
         }
 
-        // Keep the button label correct if the song ends or playback stops.
+        
         bgMusic.addEventListener('ended', function () {
             musicBtn.textContent = '▶ Play Birthday Music 🎵';
         });
@@ -155,7 +154,7 @@
                 'We could not load the song. Please check the MP3 filename and location.';
         });
 
-        // Birthday kisses and confetti.
+       
         function sendKisses() {
 
             if (typeof confetti === 'function') {
